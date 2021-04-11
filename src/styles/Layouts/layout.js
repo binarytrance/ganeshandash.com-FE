@@ -1,6 +1,7 @@
-import styled from "styled-components";
-
 import styled from 'styled-components';
-// import { theme, typeScale } from '../../utils';
+import { baseTheme } from '../utils';
 
-export const Wrapper = styled.div``;
+export const LayoutStyles = styled.main`
+    height: 100vh;
+    background: ${baseTheme.siteBackground};
+`;

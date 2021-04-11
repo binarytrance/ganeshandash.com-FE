@@ -3,10 +3,10 @@ import * as React from "react"
 // markup
 const HomePage = () => {
   return (
-    <main>
+    <>
       <title>Home Page</title>
-
-    </main>
+      <h1>Bolerplate ready</h1>
+    </>
   )
 }
 
