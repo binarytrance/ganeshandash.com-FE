@@ -1,4 +1,9 @@
-module.exports = {
+// coment
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+
+export default {
   siteMetadata: {
     title: "ganeshandash.com-FE",
   },
@@ -6,8 +11,10 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "8hbd7a4c",
-        dataset: "",
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_TOKEN,
+        watchMode: true
       },
     },
     "gatsby-plugin-styled-components",
