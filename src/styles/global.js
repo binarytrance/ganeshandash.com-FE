@@ -1,10 +1,7 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 // import { theme, typeScale } from '../../utils';
 
 export const GlobalStyles = createGlobalStyle`
-    :root {
-
-        }
     /* http://meyerweb.com/eric/tools/css/reset/
     v2.0 | 20110126
     License: none (public domain)
@@ -52,5 +49,10 @@ export const GlobalStyles = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+    :root {
+        --black: #000000;
+        --yellow: #ffc600;
+        --red: #FF4949;
     }
 `;
