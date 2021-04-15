@@ -54,5 +54,7 @@ export const GlobalStyles = createGlobalStyle`
         --black: #000000;
         --yellow: #ffc600;
         --red: #FF4949;
+        --green: #36454F;
+        --letter-spacing: 1.2px;
     }
 `;

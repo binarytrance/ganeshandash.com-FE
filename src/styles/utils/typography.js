@@ -3,12 +3,14 @@
  * @return { a string with font sizes in px and rem}
  */
 export const rem = (props) => `font-size: ${props}${`px !important`};
-        font-size: ${props / 16}${'rem !important'};`;
+        font-size: ${props / 16}${'rem !important'};
+        line-height: ${props + 10}${`px !important`};
+        line-height: ${(props + 10) / 16}${`rem !important`};`;
 
 export const typeScale = {
-  header1: `${rem(18)}`,
-  header2: `${rem(16)}`,
-  textLg: `${rem(14)}`,
+  header1: `${rem(40)}`,
+  header2: `${rem(26)}`,
+  textLg: `${rem(20)}`,
   textMd: `${rem(12)}`,
   textSm: `${rem(10)}`,
   textXs: `${rem(8)}`,

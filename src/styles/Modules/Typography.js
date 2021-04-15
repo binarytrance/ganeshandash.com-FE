@@ -1,18 +1,25 @@
 import { createGlobalStyle } from 'styled-components';
+import { baseTheme, typeScale } from '../utils';
 
 import HeadingFont from '../../assets/fonts/Salsa-Regular.ttf';
+import YatraFont from '../../assets/fonts/YatraOne-Regular.ttf';
 
 const Typography = createGlobalStyle`
   @font-face {
     font-family: Salsa;
     src: url(${HeadingFont});
   }
+  @font-face {
+    font-family: Yatra;
+    src: url(${YatraFont});
+  }
   html {
     font-family: Salsa, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--black);
+    color: ${baseTheme.text};
+    letter-spacing: var(--letter-spacing);
   }
   p, li {
-    letter-spacing: 0.5px;
+    letter-spacing: var(--letter-spacing);
   }
   h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
