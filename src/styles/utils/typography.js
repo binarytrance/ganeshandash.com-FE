@@ -9,7 +9,8 @@ export const rem = (props) => `font-size: ${props}${`px !important`};
 
 export const typeScale = {
   header1: `${rem(40)}`,
-  header2: `${rem(26)}`,
+  header2: `${rem(36)}`,
+  header3: `${rem(26)}`,
   textLg: `${rem(20)}`,
   textMd: `${rem(12)}`,
   textSm: `${rem(10)}`,

@@ -5,7 +5,9 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: 'ganeshandash.com-FE',
+    title: 'Ganeshan Dash',
+    siteUrl: 'https://ganeshandash.com',
+    description: 'The jack of all trades!',
   },
   plugins: [
     {
