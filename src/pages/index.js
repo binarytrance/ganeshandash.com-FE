@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
-import { theme, typeScale } from '../styles/utils';
+import { baseTheme, typeScale } from '../styles/utils';
 
 const HomePageStyles = styled.section`
   @media (min-width: 1200px) {
@@ -30,6 +30,20 @@ const HomePageStyles = styled.section`
       li {
         ${typeScale.header2};
         margin-bottom: 16px;
+        position: relative;
+        width: max-content;
+        z-index: var(--z-level-top);
+        cursor: pointer;
+        &::before {
+          position: absolute;
+          content: '';
+          height: 8px;
+          width: 100%;
+          background: ${baseTheme.neutral};
+          left: 0%;
+          bottom: 7px;
+          z-index: var(--z-level-psuedo);
+        }
       }
     }
   }
@@ -54,10 +68,13 @@ const HomePage = ({ data }) => {
         <div className="skills">
           <ul className="skills__list">
             {skills.map((skill) => (
-              <li>{skill.name}</li>
+              <li key={skill}>{skill.name}</li>
             ))}
           </ul>
         </div>
+      </div>
+      <div className="details">
+        {/* <img src="../assets/lightbulb.svg" alt="light bulb" /> */}
       </div>
     </HomePageStyles>
   );

@@ -56,5 +56,10 @@ export const GlobalStyles = createGlobalStyle`
         --red: #FF4949;
         --green: #36454F;
         --letter-spacing: 1.2px;
+        --whitish: #EDF2EF;
+        --z-level-top: 3;
+        --z-level-middle: 2;
+        --z-level-bottom: 1;
+        --z-level-psuedo: -1;
     }
 `;
