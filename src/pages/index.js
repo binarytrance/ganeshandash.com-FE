@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 import { baseTheme, typeScale } from '../styles/utils';
+import Lightbulb from '../assets/images/lightbulb.svg';
 
 const HomePageStyles = styled.section`
   @media (min-width: 1200px) {
@@ -10,6 +11,13 @@ const HomePageStyles = styled.section`
     margin: 0 auto;
     height: 100vh;
     display: grid;
+    align-items: center;
+    grid-template-rows: auto;
+  }
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    grid-gap: 20px;
     align-items: center;
   }
   .greeting {
@@ -47,34 +55,54 @@ const HomePageStyles = styled.section`
       }
     }
   }
+  .details {
+    display: grid;
+    &__image-container {
+      grid-column: 1/-1; // this simulates position absolute. both this and its sibling will be on stacked vertically
+      grid-row: 1/-1;
+      height: 100%;
+      width: 100%;
+    }
+    &__content {
+      grid-column: 1/-1; // this simulates position absolute
+      grid-row: 1/-1;
+      height: 100%;
+      width: 100%;
+    }
+  }
 `;
 
 // markup
 const HomePage = ({ data }) => {
-  console.log(data);
+  console.log(data, typeof Lightbulb, Lightbulb);
   const skills = data.skills.nodes;
   return (
     <HomePageStyles>
       <title>Home Page</title>
-      <div>
-        <h1 className="greeting">
-          <small className="greeting__namaste">Namaste</small>
-          <br />
-          <span className="greeting__me">I'm Ganeshan!</span>
-          <br />
-          <small className="greeting__hats">And I put on many hats.</small>
-          <br />
-        </h1>
-        <div className="skills">
-          <ul className="skills__list">
-            {skills.map((skill) => (
-              <li key={skill}>{skill.name}</li>
-            ))}
-          </ul>
+      <div className="content-wrapper">
+        <div>
+          <h1 className="greeting">
+            <small className="greeting__namaste">Namaste</small>
+            <br />
+            <span className="greeting__me">I'm Ganeshan!</span>
+            <br />
+            <small className="greeting__hats">And I put on many hats.</small>
+            <br />
+          </h1>
+          <div className="skills">
+            <ul className="skills__list">
+              {skills.map((skill, index) => (
+                <li key={skill.name + index}>{skill.name}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="details">
-        {/* <img src="../assets/lightbulb.svg" alt="light bulb" /> */}
+        <div className="details">
+          <div className="details__image-container">
+            <img src={Lightbulb} alt="light bulb" />
+          </div>
+          <div className="details__content">asdf</div>
+        </div>
       </div>
     </HomePageStyles>
   );
@@ -91,6 +119,18 @@ export const query = graphql`
           current
         }
         description
+      }
+    }
+    lightbulb: file(relativePath: { eq: "lightbulb.svg" }) {
+      relativePath
+      childImageSharp {
+        fluid {
+          src
+          srcSet
+          base64
+          sizes
+          aspectRatio
+        }
       }
     }
   }
