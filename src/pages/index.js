@@ -16,7 +16,8 @@ const HomePageStyles = styled.section`
   }
   .content-wrapper {
     display: grid;
-    grid-template-columns: 0.4fr 0.6fr;
+    grid-template-columns: 0.4fr 0.6fr; // mk1
+    grid-template-rows: auto auto;
     grid-gap: 20px;
     align-items: center;
   }
@@ -57,7 +58,7 @@ const HomePageStyles = styled.section`
   }
   .details {
     display: grid;
-    &__image-container {
+    /* &__image-container {
       grid-column: 1/-1; // this simulates position absolute. both this and its sibling will be on stacked vertically
       grid-row: 1/-1;
       height: 100%;
@@ -68,7 +69,7 @@ const HomePageStyles = styled.section`
       grid-row: 1/-1;
       height: 100%;
       width: 100%;
-    }
+    } */
   }
 `;
 
@@ -80,29 +81,29 @@ const HomePage = ({ data }) => {
     <HomePageStyles>
       <title>Home Page</title>
       <div className="content-wrapper">
-        <div>
-          <h1 className="greeting">
-            <small className="greeting__namaste">Namaste</small>
-            <br />
-            <span className="greeting__me">I'm Ganeshan!</span>
-            <br />
-            <small className="greeting__hats">And I put on many hats.</small>
-            <br />
-          </h1>
-          <div className="skills">
-            <ul className="skills__list">
-              {skills.map((skill, index) => (
-                <li key={skill.name + index}>{skill.name}</li>
-              ))}
-            </ul>
-          </div>
+        {/* <div> */}
+        <h1 className="greeting">
+          <small className="greeting__namaste">Namaste</small>
+          <br />
+          <span className="greeting__me">I'm Ganeshan!</span>
+          <br />
+          <small className="greeting__hats">And I put on many hats.</small>
+          <br />
+        </h1>
+        <div className="skills">
+          <ul className="skills__list">
+            {skills.map((skill, index) => (
+              <li key={skill.name + index}>{skill.name}</li>
+            ))}
+          </ul>
         </div>
+        {/* </div> */}
         <div className="details">
           <div className="details__image-container">
             <img src={Lightbulb} alt="light bulb" />
           </div>
-          <div className="details__content">asdf</div>
         </div>
+        <div className="details__content">asdf</div>
       </div>
     </HomePageStyles>
   );
