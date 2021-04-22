@@ -16,12 +16,14 @@ const HomePageStyles = styled.section`
   }
   .content-wrapper {
     display: grid;
-    grid-template-columns: 0.4fr 0.6fr; // mk1
-    grid-template-rows: auto auto;
-    grid-gap: 20px;
-    align-items: center;
+    grid-template-columns: repeat(12, 1fr); // mk1
+    grid-template-rows: 30px auto auto 30px;
+    grid-column-gap: 20px;
+    grid-row-gap: 50px;
   }
   .greeting {
+    grid-column: 1/5;
+    grid-row: 2/3;
     &__namaste {
       font-family: 'Yatra';
       ${typeScale.header3};
@@ -34,42 +36,39 @@ const HomePageStyles = styled.section`
     }
   }
   .skills {
-    margin-top: 50px;
-    &__list {
-      li {
-        ${typeScale.header2};
-        margin-bottom: 16px;
-        position: relative;
-        width: max-content;
-        z-index: var(--z-level-top);
-        cursor: pointer;
-        &::before {
-          position: absolute;
-          content: '';
-          height: 8px;
-          width: 100%;
-          background: ${baseTheme.neutral};
-          left: 0%;
-          bottom: 7px;
-          z-index: var(--z-level-psuedo);
-        }
+    grid-column: 1/5;
+    grid-row: 3/4;
+    li {
+      ${typeScale.header2};
+      margin-bottom: 16px;
+      position: relative;
+      width: max-content;
+      z-index: var(--z-level-top);
+      cursor: pointer;
+      &::before {
+        position: absolute;
+        content: '';
+        height: 8px;
+        width: 100%;
+        background: ${baseTheme.neutral};
+        left: 0%;
+        bottom: 7px;
+        z-index: var(--z-level-psuedo);
       }
     }
   }
-  .details {
+  .banner-image {
     display: grid;
-    /* &__image-container {
-      grid-column: 1/-1; // this simulates position absolute. both this and its sibling will be on stacked vertically
-      grid-row: 1/-1;
+    grid-column: 5/12;
+    grid-row: 1/5;
+    img {
       height: 100%;
       width: 100%;
     }
-    &__content {
-      grid-column: 1/-1; // this simulates position absolute
-      grid-row: 1/-1;
-      height: 100%;
-      width: 100%;
-    } */
+  }
+  .skill-summary {
+    grid-column: 5/12;
+    grid-row: 3/4;
   }
 `;
 
@@ -81,7 +80,6 @@ const HomePage = ({ data }) => {
     <HomePageStyles>
       <title>Home Page</title>
       <div className="content-wrapper">
-        {/* <div> */}
         <h1 className="greeting">
           <small className="greeting__namaste">Namaste</small>
           <br />
@@ -90,20 +88,15 @@ const HomePage = ({ data }) => {
           <small className="greeting__hats">And I put on many hats.</small>
           <br />
         </h1>
-        <div className="skills">
-          <ul className="skills__list">
-            {skills.map((skill, index) => (
-              <li key={skill.name + index}>{skill.name}</li>
-            ))}
-          </ul>
+        <ul className="skills">
+          {skills.map((skill, index) => (
+            <li key={skill.name + index}>{skill.name}</li>
+          ))}
+        </ul>
+        <div className="banner-image">
+          <img src={Lightbulb} alt="light bulb" />
         </div>
-        {/* </div> */}
-        <div className="details">
-          <div className="details__image-container">
-            <img src={Lightbulb} alt="light bulb" />
-          </div>
-        </div>
-        <div className="details__content">asdf</div>
+        <div className="skill-summary">asdf</div>
       </div>
     </HomePageStyles>
   );
