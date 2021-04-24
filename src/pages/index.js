@@ -2,8 +2,10 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { baseTheme, typeScale } from '../styles/utils';
 import Lightbulb from '../assets/images/lightbulb.svg';
+// import Img from "gatsby-image"
 
 const HomePageStyles = styled.section`
   @media (min-width: 1200px) {
@@ -74,8 +76,17 @@ const HomePageStyles = styled.section`
 
 // markup
 const HomePage = ({ data }) => {
-  console.log(data, typeof Lightbulb, Lightbulb);
+  const [highlightedSkills, setHighlightedSkills] = React.useState([]);
   const skills = data.skills.nodes;
+  const showSkillsDetails = (e) => {
+    console.log('hover', e);
+
+    const selectedSkill = skills.filter(
+      (skill) => e.target.innerHTML === skill.name
+    );
+    setHighlightedSkills(selectedSkill[0]);
+  };
+
   return (
     <HomePageStyles>
       <title>Home Page</title>
@@ -90,13 +101,20 @@ const HomePage = ({ data }) => {
         </h1>
         <ul className="skills">
           {skills.map((skill, index) => (
-            <li key={skill.name + index}>{skill.name}</li>
+            <li key={skill.name + index} onMouseEnter={showSkillsDetails}>
+              {skill.name}
+            </li>
           ))}
         </ul>
         <div className="banner-image">
-          <img src={Lightbulb} alt="light bulb" />
+          <img src={data.local.publicURL} alt="light bulb" />
+          {/* <GatsbyImage image={data.local.publicURL} alt="light bulb" /> */}
         </div>
-        <div className="skill-summary">asdf</div>
+        {highlightedSkills ? (
+          <div className="skill-summary">
+            <p>{highlightedSkills.description}</p>
+          </div>
+        ) : null}
       </div>
     </HomePageStyles>
   );
@@ -106,26 +124,27 @@ export default HomePage;
 
 export const query = graphql`
   query skillsQuery {
+    local: file(relativePath: { eq: "lightbulb.svg" }) {
+      publicURL
+    }
     skills: allSanitySkills {
       nodes {
         name
+        id
+        description
         slug {
           current
         }
-        description
-      }
-    }
-    lightbulb: file(relativePath: { eq: "lightbulb.svg" }) {
-      relativePath
-      childImageSharp {
-        fluid {
-          src
-          srcSet
-          base64
-          sizes
-          aspectRatio
+        image {
+          asset {
+            path
+            url
+            title
+            size
+          }
         }
       }
+      totalCount
     }
   }
 `;
