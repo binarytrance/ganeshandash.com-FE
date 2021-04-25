@@ -12,7 +12,5 @@ export const typeScale = {
   header2: `${rem(36)}`,
   header3: `${rem(26)}`,
   textLg: `${rem(20)}`,
-  textMd: `${rem(12)}`,
-  textSm: `${rem(10)}`,
-  textXs: `${rem(8)}`,
+  textMd: `${rem(24)}`,
 };
