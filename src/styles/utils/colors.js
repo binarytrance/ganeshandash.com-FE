@@ -1,5 +1,6 @@
 export const brown = {
   100: '#D0C7BC',
+  200: '#441C2C',
 };
 
 export const green = {

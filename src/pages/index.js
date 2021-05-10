@@ -2,11 +2,11 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
 import favicon from '../assets/images/static/favicon.ico';
 import { baseTheme, typeScale } from '../styles/utils';
-import Lightbulb from '../assets/images/lightbulb.svg';
+// import Lightbulb from '../assets/images/lightbulb.svg';
 // import Img from "gatsby-image"
 
 const HomePageStyles = styled.section`
@@ -124,7 +124,7 @@ const HomePage = ({ data }) => {
     );
     setHighlightedSkills(selectedSkill[0]);
   };
-  console.log(highlightedSkills);
+  console.log(highlightedSkills, skills);
 
   return (
     <HomePageStyles>
