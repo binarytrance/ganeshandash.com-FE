@@ -5,6 +5,14 @@ import styled from 'styled-components';
 // import { theme, typeScale } from '../styles/utils';
 
 const WriterStyles = styled.section`
+  @media (min-width: 1200px) {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    grid-template-rows: auto;
+  }
   .content-wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr); // mk1
@@ -19,7 +27,7 @@ const WriterStyles = styled.section`
 export default function Writer(props) {
   // eslint-disable-next-line react/destructuring-assignment
   const allArticles = props.data.articles.nodes;
-  console.log(props);
+  console.log(allArticles);
   // eslint-disable-next-line react/destructuring-assignment
   const { pathname } = props.location;
   return (
@@ -29,9 +37,24 @@ export default function Writer(props) {
           Ganeshan Dash <span>{pathname}</span>
         </h1>
         <ul>
+          <li>Tech</li>
+          <li>Fiction</li>
+          <li>Book Reviews</li>
+          <li>Opinions</li>
+          <li>Commentaries</li>
+        </ul>
+        <ul>
           {allArticles.map((article) => (
-            <li key={article.id}>
-              <h3>{article.title}</h3>
+            <li key={article.id} className="article">
+              <h2 className="article__title">{article.title}</h2>
+              <p className="article__summary">{article.summary}</p>
+              {article.tags.length ? (
+                <ul>
+                  {article.tags.map((tag) => (
+                    <li className="article__tag">{tag}</li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
           ))}
         </ul>
@@ -47,6 +70,7 @@ export const pageQuery = graphql`
         id
         tags
         title
+        summary
         internal {
           content
           contentDigest
