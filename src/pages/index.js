@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
@@ -179,6 +179,7 @@ const HomePage = ({ data }) => {
               ) : null}
             </div>
             {/* <p>either image or text</p> */}
+            <Link to={highlightedSkills.slug.current}>Know more</Link>
           </div>
         ) : null}
       </div>
