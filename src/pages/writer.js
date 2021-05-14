@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
+import ArticleTags from '../components/ArticleTags';
 // import { theme, typeScale } from '../styles/utils';
 
 const WriterStyles = styled.section`
@@ -24,6 +25,8 @@ const WriterStyles = styled.section`
   }
 `;
 
+const HeadingTagStyles = styled.div``;
+
 export default function Writer(props) {
   // eslint-disable-next-line react/destructuring-assignment
   const allArticles = props.data.articles.nodes;
@@ -36,13 +39,9 @@ export default function Writer(props) {
         <h1>
           Ganeshan Dash <span>{pathname}</span>
         </h1>
-        <ul>
-          <li>Tech</li>
-          <li>Fiction</li>
-          <li>Book Reviews</li>
-          <li>Opinions</li>
-          <li>Commentaries</li>
-        </ul>
+        <HeadingTagStyles>
+          <ArticleTags articles={allArticles} />
+        </HeadingTagStyles>
         <ul>
           {allArticles.map((article) => (
             <li key={article.id} className="article">
