@@ -27,20 +27,22 @@ const WriterStyles = styled.section`
 
 const HeadingTagStyles = styled.div``;
 
-export default function Writer(props) {
+export default function Writer({ data, pageContext, ...routeData }) {
+  console.log({ data, pageContext, routeData }, routeData.uri);
+
   // eslint-disable-next-line react/destructuring-assignment
-  const allArticles = props.data.articles.nodes;
-  console.log(allArticles);
+  const allArticles = data.articles.nodes;
+  // console.log(allArticles);
   // eslint-disable-next-line react/destructuring-assignment
-  const { pathname } = props.location;
+  const { uri } = routeData.uri;
   return (
     <WriterStyles>
       <div className="content-wrapper">
         <h1>
-          Ganeshan Dash <span>{pathname}</span>
+          Ganeshan Dash <span>{uri}</span>
         </h1>
         <HeadingTagStyles>
-          <ArticleTags articles={allArticles} />
+          <ArticleTags activeTag={pageContext.tag} />
         </HeadingTagStyles>
         <ul>
           {allArticles.map((article) => (
@@ -50,7 +52,9 @@ export default function Writer(props) {
               {article.tags.length ? (
                 <ul>
                   {article.tags.map((tag) => (
-                    <li className="article__tag">{tag}</li>
+                    <li key={tag.id} className="article__tag">
+                      {tag.name}
+                    </li>
                   ))}
                 </ul>
               ) : null}
@@ -63,13 +67,18 @@ export default function Writer(props) {
 }
 
 export const pageQuery = graphql`
-  query Writer {
-    articles: allSanityWriter {
+  query Writer($tagRegex: String) {
+    articles: allSanityWriter(
+      filter: { tags: { elemMatch: { name: { regex: $tagRegex } } } }
+    ) {
       nodes {
         id
-        tags
         title
         summary
+        tags {
+          name
+          id
+        }
         internal {
           content
           contentDigest

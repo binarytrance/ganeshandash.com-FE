@@ -1,7 +1,23 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
-export default function ArticleTags({ articles }) {
+export default function ArticleTags({ activeTag }) {
+  // get all tags
+  const { articles } = useStaticQuery(graphql`
+    query {
+      articles: allSanityWriter {
+        nodes {
+          tags {
+            name
+            id
+            tech
+          }
+          id
+          title
+        }
+      }
+    }
+  `);
   // get number of articles wrt to each tag
   // list down all the article tags along with their article numbers
   console.clear();
@@ -9,20 +25,21 @@ export default function ArticleTags({ articles }) {
   // blog
   const allTags =
     articles &&
-    articles
+    articles.nodes
       .map((article) => article.tags)
       .flat()
       .reduce((acc, tag) => {
         console.log(acc, tag);
 
-        const existingTag = acc[tag];
+        const existingTag = acc[tag.id];
         if (existingTag) {
           existingTag.count += 1;
         } else {
           console.log('else');
 
-          acc[tag] = {
-            name: tag,
+          acc[tag.id] = {
+            name: tag.name,
+            id: tag.id,
             count: 1,
           };
         }
@@ -33,8 +50,9 @@ export default function ArticleTags({ articles }) {
 
   return (
     <ul>
+      <Link to="/writer">All ({sortedTags.length})</Link>
       {sortedTags.map((tag) => (
-        <Link to={`/articles/${tag.name}`}>
+        <Link to={`/tag/${tag.name}`}>
           {tag.name}({tag.count})
         </Link>
       ))}
