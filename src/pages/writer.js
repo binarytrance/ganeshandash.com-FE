@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
@@ -47,7 +47,12 @@ export default function Writer({ data, pageContext, ...routeData }) {
         <ul>
           {allArticles.map((article) => (
             <li key={article.id} className="article">
-              <h2 className="article__title">{article.title}</h2>
+              <Link
+                to={`/writer/article/${article.slug.current}`}
+                className="article__title"
+              >
+                {article.title}
+              </Link>
               <p className="article__summary">{article.summary}</p>
               {article.tags.length ? (
                 <ul>
@@ -75,6 +80,9 @@ export const pageQuery = graphql`
         id
         title
         summary
+        slug {
+          current
+        }
         tags {
           name
           id
