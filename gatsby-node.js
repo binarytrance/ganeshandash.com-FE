@@ -14,7 +14,7 @@ async function turnTagsIntoPages({ graphql, actions }) {
       }
     }
   `);
-  console.log(data.allTags.nodes, 'asdf');
+  // console.log(data.allTags.nodes, 'asdf');
   data.allTags.nodes.forEach((tag) => {
     actions.createPage({
       path: `tag/${tag.name}`,
