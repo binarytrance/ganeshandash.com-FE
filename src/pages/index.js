@@ -169,11 +169,11 @@ const HomePage = ({ data }) => {
             <p className="ordinary-text">latest work goes here.</p>
             <div className="current-occupation">
               <h2>Currently occupied with:</h2>
-              {highlightedSkills.image ? (
-                // <GatsbyImage image={highlightedSkills.image.asset} alt="text" />
+              {highlightedSkills.mainImage ? (
+                // <GatsbyImage mainImage={highlightedSkills.mainImage.asset} alt="text" />
                 <img
-                  src={highlightedSkills.image.asset.url}
-                  alt={highlightedSkills.image.asset.caption}
+                  src={highlightedSkills.mainImage.asset.url}
+                  alt={highlightedSkills.mainImage.asset.caption}
                   className="skill-summary__image"
                 />
               ) : null}
@@ -202,7 +202,7 @@ export const query = graphql`
         slug {
           current
         }
-        image {
+        mainImage {
           asset {
             path
             url

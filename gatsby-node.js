@@ -27,12 +27,39 @@ async function turnTagsIntoPages({ graphql, actions }) {
   });
 }
 
+async function turnArticlesIntoPages({ graphql, actions }) {
+  const template = path.resolve('./src/templates/article.js');
+
+  const { data } = await graphql(`
+    query {
+      allArticles: allSanityWriter {
+        nodes {
+          id
+          title
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+  // console.log(data.allArticles.nodes);
+  data.allArticles.nodes.forEach((article) => {
+    actions.createPage({
+      path: `writer/article/${article.slug.current}`,
+      component: template,
+      context: {
+        slug: article.slug.current,
+        id: article.id,
+        titleRegex: `/${article.title}/i`,
+      },
+    });
+  });
+}
+
 export async function createPages(params) {
   // 1. tags
   // 2. article details
 
-  await Promise.all([
-    turnTagsIntoPages(params),
-    // turnArticlesIntoPages(params)
-  ]);
+  await Promise.all([turnTagsIntoPages(params), turnArticlesIntoPages(params)]);
 }
