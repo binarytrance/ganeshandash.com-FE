@@ -14,7 +14,6 @@ async function turnTagsIntoPages({ graphql, actions }) {
       }
     }
   `);
-  // console.log(data.allTags.nodes, 'asdf');
   data.allTags.nodes.forEach((tag) => {
     actions.createPage({
       path: `tag/${tag.name}`,
@@ -43,7 +42,6 @@ async function turnArticlesIntoPages({ graphql, actions }) {
       }
     }
   `);
-  // console.log(data.allArticles.nodes);
   data.allArticles.nodes.forEach((article) => {
     actions.createPage({
       path: `writer/article/${article.slug.current}`,
