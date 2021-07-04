@@ -1,10 +1,15 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import ArticleContent from '../components/ArticleContent';
 
-const Article = ({ data }) => {
-  console.log(data.article.title);
+const Article = ({ data, errors }) => {
+  // console.log(data.article.title, errors);
+  const content = data && data.article;
+  console.log(content);
 
-  return <div>{data.article.title}</div>;
+  // handle graphql errors
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <>{content && <ArticleContent {...content} />}</>;
 };
 
 export const query = graphql`
