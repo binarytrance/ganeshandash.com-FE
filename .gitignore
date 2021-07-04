@@ -4,4 +4,5 @@ node_modules/
 # gatsby files
 .cache/
 public
+#secrets
 .env
