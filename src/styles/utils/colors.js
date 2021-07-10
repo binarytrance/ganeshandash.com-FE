@@ -20,6 +20,8 @@ export const black = {
 };
 export const orange = {
   100: '#FA7E61',
+  200: '#e9d8a6',
+  300: '#ecbd65',
 };
 export const blue = {
   100: '#0B1D51',

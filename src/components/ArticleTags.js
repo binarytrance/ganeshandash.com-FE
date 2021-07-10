@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
-export default function ArticleTags({ activeTag }) {
+export default function ArticleTags({ activeTag, fontSize }) {
   // get all tags
   const { articles } = useStaticQuery(graphql`
     query {
@@ -20,8 +20,6 @@ export default function ArticleTags({ activeTag }) {
   `);
   // get number of articles wrt to each tag
   // list down all the article tags along with their article numbers
-  console.clear();
-  console.log(articles);
   // blog
   const allTags =
     articles &&
@@ -29,14 +27,10 @@ export default function ArticleTags({ activeTag }) {
       .map((article) => article.tags)
       .flat()
       .reduce((acc, tag) => {
-        console.log(acc, tag);
-
         const existingTag = acc[tag.id];
         if (existingTag) {
           existingTag.count += 1;
         } else {
-          console.log('else');
-
           acc[tag.id] = {
             name: tag.name,
             id: tag.id,
@@ -45,16 +39,21 @@ export default function ArticleTags({ activeTag }) {
         }
         return acc;
       }, {});
-  console.log(allTags);
   const sortedTags = Object.values(allTags).sort((a, b) => b.count - a.count);
 
   return (
     <ul>
-      <Link to="/writer">All ({sortedTags.length})</Link>
-      {sortedTags.map((tag) => (
-        <Link to={`/tag/${tag.name}`}>
-          {tag.name}({tag.count})
+      <li>
+        <Link to="/writer" className={fontSize}>
+          All ({sortedTags.length})
         </Link>
+      </li>
+      {sortedTags.map((tag) => (
+        <li>
+          <Link to={`/tag/${tag.name}`} className={fontSize}>
+            {tag.name}({tag.count})
+          </Link>
+        </li>
       ))}
     </ul>
   );

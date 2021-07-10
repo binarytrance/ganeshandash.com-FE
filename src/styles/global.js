@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { baseTheme, typeScale } from './utils';
 // import { theme, typeScale } from '../../utils';
 
 export const GlobalStyles = createGlobalStyle`
@@ -52,14 +53,22 @@ export const GlobalStyles = createGlobalStyle`
     }
     :root {
         --black: #000000;
+        --white: ${baseTheme.neutral};
         --yellow: #ffc600;
         --red: #FF4949;
+        --highlight-red: ${baseTheme.highlightRed};
         --green: #36454F;
         --letter-spacing: 1.2px;
-        --whitish: #EDF2EF;
+        --egg-white: #EDF2EF;
         --z-level-top: 3;
         --z-level-middle: 2;
         --z-level-bottom: 1;
         --z-level-psuedo: -1;
     }
+
+
+    h1 .what-am-i {
+        ${typeScale.textLg}
+    }
+
 `;
