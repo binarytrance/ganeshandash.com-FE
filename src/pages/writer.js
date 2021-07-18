@@ -118,7 +118,8 @@ export default function Writer({ data, pageContext, ...routeData }) {
       <WriterStyles>
         <div className="content-wrapper">
           <H1>
-            Ganeshan Dash <span className="what-am-i">{uri}</span>
+            <Link to="/">Ganeshan Dash</Link>{' '}
+            <span className="what-am-i">{uri}</span>
           </H1>
           {/* // TODO: Install tailwind */}
           {/* <ArticleTags activeTag={pageContext.tag} /> */}
