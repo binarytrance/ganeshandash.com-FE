@@ -1,5 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+import { H1 } from '../styles/Modules/Headings';
+import { PxToRem } from '../styles/utils/math';
 import PortableText from './PortableText';
+
+// import { theme, typeScale } from '../../utils';
+
+export const ArticleStyles = styled.article`
+  padding-top: 100px;
+  h1 {
+    margin-bottom: ${PxToRem(35)};
+  }
+  p {
+    margin-bottom: ${PxToRem(35)};
+  }
+`;
 
 const ArticleContent = ({
   _rawContent,
@@ -11,9 +26,9 @@ const ArticleContent = ({
   title,
 }) => (
   // console.log(title);
-  <article>
-    <h1>{title}</h1>
+  <ArticleStyles>
+    <H1>{title}</H1>
     {_rawContent && <PortableText blocks={_rawContent} />}
-  </article>
+  </ArticleStyles>
 );
 export default ArticleContent;

@@ -37,6 +37,7 @@ const Typography = createGlobalStyle`
         position: relative;
         z-index: var(--z-level-top);
         width: fit-content;
+        color: ${baseTheme.text};
         &::before {
             position: absolute;
             content: '';

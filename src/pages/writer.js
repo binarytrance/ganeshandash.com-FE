@@ -12,8 +12,6 @@ import { theme, typeScale } from '../styles/utils';
 
 const WriterStyles = styled.section`
   @media (min-width: 1200px) {
-    max-width: 680px;
-    margin: 0 auto;
     /* height: 100vh; */
     display: grid;
     align-items: center;
@@ -70,6 +68,7 @@ const ArticlesList = styled.ul`
 const ArticleFiltersSidebarStyles = styled.aside`
   position: fixed;
   top: 0;
+  left: 0;
   bottom: 0;
   height: 100%;
   display: flex;
