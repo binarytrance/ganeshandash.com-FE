@@ -107,7 +107,7 @@ export default function Writer({ data, pageContext, ...routeData }) {
   // console.log(allArticles);
   // eslint-disable-next-line react/destructuring-assignment
   const { uri } = routeData;
-  console.log(routeData, 'uu', allArticles);
+  // console.log(routeData, 'uu', allArticles);
 
   return (
     <>

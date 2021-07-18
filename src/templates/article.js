@@ -5,7 +5,7 @@ import ArticleContent from '../components/ArticleContent';
 const Article = ({ data, errors }) => {
   // console.log(data.article.title, errors);
   const content = data && data.article;
-  console.log(content);
+  // console.log(content);
 
   // handle graphql errors
   // eslint-disable-next-line react/jsx-props-no-spreading

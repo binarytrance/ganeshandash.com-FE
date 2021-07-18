@@ -9,14 +9,11 @@ const ArticleContent = ({
   summary,
   tags,
   title,
-}) => {
-  console.log(title);
-  return (
-    <article>
-      <h1>{title}</h1>
-      {_rawContent && <PortableText blocks={_rawContent} />}
-    </article>
-  );
-};
-
+}) => (
+  // console.log(title);
+  <article>
+    <h1>{title}</h1>
+    {_rawContent && <PortableText blocks={_rawContent} />}
+  </article>
+);
 export default ArticleContent;

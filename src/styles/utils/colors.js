@@ -4,6 +4,7 @@ export const brown = {
   300: '#441C2C',
   400: '#6F5E5C',
   500: '#6C534E',
+  600: '#f9ebd2',
 };
 
 export const green = {

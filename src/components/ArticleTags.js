@@ -40,6 +40,7 @@ export default function ArticleTags({ activeTag, fontSize }) {
         return acc;
       }, {});
   const sortedTags = Object.values(allTags).sort((a, b) => b.count - a.count);
+  console.log(articles, sortedTags);
 
   return (
     <ul>
@@ -49,7 +50,7 @@ export default function ArticleTags({ activeTag, fontSize }) {
         </Link>
       </li>
       {sortedTags.map((tag) => (
-        <li>
+        <li key={tag.id}>
           <Link to={`/tag/${tag.name}`} className={fontSize}>
             {tag.name}({tag.count})
           </Link>

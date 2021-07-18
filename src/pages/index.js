@@ -117,14 +117,14 @@ const HomePage = ({ data }) => {
   const [highlightedSkills, setHighlightedSkills] = React.useState(null);
   const skills = data.skills.nodes;
   const showSkillsDetails = (e) => {
-    console.log('hover', e);
+    // console.log('hover', e);
 
     const selectedSkill = skills.filter(
       (skill) => e.target.innerHTML === skill.name
     );
     setHighlightedSkills(selectedSkill[0]);
   };
-  console.log(highlightedSkills, skills);
+  // console.log(highlightedSkills, skills);
 
   return (
     <HomePageStyles>
