@@ -71,4 +71,13 @@ export const GlobalStyles = createGlobalStyle`
         ${typeScale.textLg}
     }
 
+    html, body {
+        height: 100%;
+        min-height: 100vh;
+    }
+    #___gatsby, #gatsby-focus-wrapper {
+        /* height: 100%; */
+        min-height: 100vh;
+    }
+
 `;

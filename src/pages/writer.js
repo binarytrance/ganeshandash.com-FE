@@ -54,6 +54,7 @@ const ArticlesList = styled.ul`
       color: #441c2c;
       border-radius: 4px;
       margin-top: 5px;
+      margin-right: ${PxToRem(15)};
       cursor: pointer;
       &:hover {
         color: var(--highlight-red);
