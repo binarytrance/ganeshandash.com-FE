@@ -8,6 +8,7 @@ export const rem = (props) => `font-size: ${props}${`px !important`};
         line-height: ${(props + 10) / 16}${`rem !important`};`;
 
 export const typeScale = {
+  myName: `${rem(46)}`,
   header1: `${rem(40)}`,
   header2: `${rem(36)}`,
   header3: `${rem(26)}`,

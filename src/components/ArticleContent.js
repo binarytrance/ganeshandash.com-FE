@@ -9,10 +9,10 @@ import PortableText from './PortableText';
 export const ArticleStyles = styled.article`
   padding-top: 100px;
   h1 {
-    margin-bottom: ${PxToRem(35)};
+    margin-bottom: ${PxToRem(25)};
   }
   p {
-    margin-bottom: ${PxToRem(35)};
+    margin-bottom: ${PxToRem(25)};
   }
 `;
 

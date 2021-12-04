@@ -38,7 +38,7 @@ const HomePageStyles = styled.section`
       ${typeScale.header1};
     }
     &__hats {
-      ${typeScale.textLg};
+      ${typeScale.textMd};
     }
   }
   .skills {
@@ -138,9 +138,9 @@ const HomePage = ({ data }) => {
         <h1 className="greeting">
           <small className="greeting__namaste">Namaste</small>
           <br />
-          <span className="greeting__me">I'm Ganeshan!</span>
+          <p className="greeting__me">I'm Ganeshan Dash!</p>
           <br />
-          <small className="greeting__hats">And I put on many hats.</small>
+          <p className="greeting__hats">And I put on many hats.</p>
           <br />
         </h1>
         <ul className="skills">

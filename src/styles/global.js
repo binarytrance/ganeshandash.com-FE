@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { baseTheme, typeScale } from './utils';
+import { PxToRem } from './utils/math';
 // import { theme, typeScale } from '../../utils';
 
 export const GlobalStyles = createGlobalStyle`
@@ -79,6 +80,10 @@ export const GlobalStyles = createGlobalStyle`
     #___gatsby, #gatsby-focus-wrapper {
         /* height: 100%; */
         min-height: 100vh;
+    }
+    section {
+        padding-top: ${PxToRem(25)};
+        padding-bottom: ${PxToRem(25)};
     }
 
 `;
