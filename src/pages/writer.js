@@ -6,7 +6,7 @@ import ArticleListItem from '../components/ArticleListItem';
 import { SidebarContents } from '../styles/Modules/SidebarContents';
 import ArticleTags from '../components/ArticleTags';
 import { H1 } from '../styles/Modules/Headings';
-import { ArticlesListStyles } from '../styles/Modules/ArticleListItemStyles';
+import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
 
 const WriterStyles = styled.section`
   @media (min-width: 1200px) {

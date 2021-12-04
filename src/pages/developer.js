@@ -1,12 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { ArticlesListStyles } from '../styles/Modules/ArticleListItemStyles';
+import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
 import ArticleListItem from '../components/ArticleListItem';
 import { H1, SectionHeading } from '../styles/Modules/Headings';
 import { DeveloperStyles } from '../styles/Layouts/DeveloperStyles';
 import { SidebarContents } from '../styles/Modules/SidebarContents';
 import DeccanHerald from '../assets/images/deccan_herald.png';
 import Factspan from '../assets/images/factspan.png';
+import { ParagraphText } from '../styles/Modules/Text';
 
 const Developer = ({ data }) => {
   console.log(data);
@@ -18,6 +19,7 @@ const Developer = ({ data }) => {
           <li>About</li>
           <li>Past Work</li>
           <li>Blog</li>
+          <li>Contract</li>
         </ul>
       </SidebarContents>
       <DeveloperStyles>
@@ -56,6 +58,44 @@ const Developer = ({ data }) => {
               ))}
             </ArticlesListStyles>
           ) : null}
+        </section>
+        <section>
+          <SectionHeading>Get in touch</SectionHeading>
+          <ParagraphText>
+            Whether it is to discuss about a problem that needs solving, offer
+            feedback, or you just want to say hi, you can reach me on my{' '}
+            <a href="mailto:ganeshan.dash@gmail.com">Email.</a>
+          </ParagraphText>
+        </section>
+        <hr />
+        <section>
+          <SectionHeading>This Website</SectionHeading>
+          <ParagraphText>
+            ... is an exercise to come out of an uninspired rut/comfort zone, if
+            you will. I am hoping to write more and learn new things in a much
+            more fun way and this here will be my creative outlet.
+          </ParagraphText>
+          <ParagraphText>
+            ... has been designed and devloped by Ganeshan Dash.
+          </ParagraphText>
+          <ParagraphText>
+            ... has been built with{' '}
+            <a
+              target="_blank"
+              href="https://www.gatsbyjs.com/"
+              rel="noreferrer"
+            >
+              Gatsby
+            </a>{' '}
+            and{' '}
+            <a target="_blank" href="https://www.sanity.io/" rel="noreferrer">
+              Sanity
+            </a>
+            . Hosted on{' '}
+            <a target="_foo" href="https://www.netlify.com/">
+              Netlify
+            </a>
+          </ParagraphText>
         </section>
       </DeveloperStyles>
     </>

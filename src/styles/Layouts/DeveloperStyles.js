@@ -25,6 +25,9 @@ export const DeveloperStyles = styled.div`
       grid-template-columns: repeat(8, 1fr);
       grid-template-rows: 1fr 1fr 1fr 1fr;
       margin-bottom: ${PxToRem(30)};
+      &:last-child {
+        margin-bottom: 0;
+      }
       img {
         width: 100%;
         grid-row: 1/-2;
@@ -54,6 +57,6 @@ export const DeveloperStyles = styled.div`
     }
   }
   h2 {
-    margin-bottom: ${PxToRem(30)};
+    margin-bottom: ${PxToRem(25)};
   }
 `;

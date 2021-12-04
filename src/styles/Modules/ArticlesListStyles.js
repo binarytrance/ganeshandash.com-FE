@@ -10,6 +10,9 @@ export const ArticlesListStyles = styled.ul`
     flex-direction: column;
     /* padding: ${PxToRem(12)}; */
     margin-bottom: ${PxToRem(25)};
+    &:last-child {
+      margin-bottom: 0;
+    }
     &__title {
       color: ${baseTheme.text};
     }
