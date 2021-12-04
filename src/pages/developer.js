@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { useRef } from 'react';
+import { graphql, Link } from 'gatsby';
 import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
 import ArticleListItem from '../components/ArticleListItem';
 import { H1, SectionHeading } from '../styles/Modules/Headings';
@@ -11,19 +11,33 @@ import { ParagraphText } from '../styles/Modules/Text';
 
 const Developer = ({ data }) => {
   console.log(data);
-
+  const aboutRef = useRef();
+  const projectsRef = useRef();
+  const blogRef = useRef();
+  const contactRef = useRef();
+  // TODO: to implement nav links
   return (
     <>
       <SidebarContents>
-        <ul>
-          <li>About</li>
-          <li>Past Work</li>
-          <li>Blog</li>
-          <li>Contract</li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <Link to="#about">About</Link>
+            </li>
+            <li>
+              <Link to="#projects">Past Work</Link>
+            </li>
+            <li>
+              <Link to="#blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="#contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
       </SidebarContents>
       <DeveloperStyles>
-        <section>
+        <section id="about">
           <H1 className="greeting">
             <small className="greeting__namaste">Namaste, I'm </small>
             <p className="greeting__me">Ganeshan Dash!</p>
@@ -36,7 +50,7 @@ const Developer = ({ data }) => {
             </p>
           </H1>
         </section>
-        <section>
+        <section id="projects">
           <SectionHeading>Past Work</SectionHeading>
           <ul className="past-work">
             <li>
@@ -49,7 +63,7 @@ const Developer = ({ data }) => {
             </li>
           </ul>
         </section>
-        <section>
+        <section id="blog">
           <SectionHeading>Blog</SectionHeading>
           {data.articles.nodes && data.articles.nodes.length > 0 ? (
             <ArticlesListStyles>
@@ -59,7 +73,7 @@ const Developer = ({ data }) => {
             </ArticlesListStyles>
           ) : null}
         </section>
-        <section>
+        <section id="contact" ref={contactRef}>
           <SectionHeading>Get in touch</SectionHeading>
           <ParagraphText>
             Whether it is to discuss about a problem that needs solving, offer
