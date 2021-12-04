@@ -28,7 +28,7 @@ const HomePageStyles = styled.section`
     overflow: visible; // content with more height can be visible, yet the poisiton of the centered div remains same
   }
   .greeting {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     grid-row: 2/3;
     &__namaste {
       font-family: 'Yatra';
@@ -42,7 +42,7 @@ const HomePageStyles = styled.section`
     }
   }
   .skills {
-    grid-column: 1/5;
+    grid-column: 1/6;
     grid-row: 3/4;
     li {
       ${typeScale.header2};
@@ -65,7 +65,7 @@ const HomePageStyles = styled.section`
   }
   .banner-image {
     display: grid;
-    grid-column: 5/12;
+    grid-column: 6/-1;
     grid-row: 1/5;
     &--background {
       transition: 0.3s ease-out;
@@ -79,7 +79,7 @@ const HomePageStyles = styled.section`
     }
   }
   .skill-summary {
-    grid-column: 5/12;
+    grid-column: 6/-1;
     grid-row: 3/4;
     display: flex;
     flex-direction: column;

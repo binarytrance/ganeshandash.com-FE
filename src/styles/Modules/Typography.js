@@ -82,9 +82,11 @@ const Typography = createGlobalStyle`
   .tilt {
     transform: rotate(-2deg);
   }
-
+  .text-1000 {
+    ${typeScale.headerAuth}
+  }
   .text-700 {
-    ${typeScale.header2}
+    ${typeScale.header1}
   }
   .text-600 {
       ${typeScale.header2}

@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 import { differenceInDays, formatDistance, format } from 'date-fns';
+import { SidebarContents } from '../styles/Modules/SidebarContents';
 import ArticleTags from '../components/ArticleTags';
 import { H1 } from '../styles/Modules/Headings';
 import { PxToRem } from '../styles/utils/math';
@@ -65,40 +66,6 @@ const ArticlesList = styled.ul`
   }
 `;
 
-const ArticleFiltersSidebarStyles = styled.aside`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-left: ${PxToRem(54)};
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    width: ${PxToRem(3)};
-    height: 100%;
-    background: #222e50;
-  }
-  ul {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background: ${baseTheme.siteBackground};
-    padding: ${PxToRem(15)};
-    li {
-      margin-bottom: ${PxToRem(15)};
-      a {
-        color: ${baseTheme.text};
-      }
-    }
-  }
-`;
-
 export default function Writer({ data, pageContext, ...routeData }) {
   // console.log({ data, pageContext, routeData }, routeData.uri);
 
@@ -111,9 +78,9 @@ export default function Writer({ data, pageContext, ...routeData }) {
 
   return (
     <>
-      <ArticleFiltersSidebarStyles>
+      <SidebarContents>
         <ArticleTags activeTag={pageContext.tag} fontSize="text-200" />
-      </ArticleFiltersSidebarStyles>
+      </SidebarContents>
       <WriterStyles>
         <div className="content-wrapper">
           <H1>
