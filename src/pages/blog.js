@@ -2,13 +2,15 @@ import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
-import ArticleListItem from '../components/ArticleListItem';
+import ArticleListItem from '../components/Articles/ArticleListItem';
 import { SidebarContents } from '../styles/Modules/SidebarContents';
-import ArticleTags from '../components/ArticleTags';
+import ArticleTags from '../components/Articles/Tags/ArticleTags';
 import { H1 } from '../styles/Modules/Headings';
 import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
+import { Island } from '../styles/Layouts/Island';
+import Articles from '../components/Articles';
 
-const WriterStyles = styled.section`
+const BlogStyles = styled.section`
   @media (min-width: 1200px) {
     /* height: 100vh; */
     display: grid;
@@ -27,7 +29,7 @@ const WriterStyles = styled.section`
   } */
 `;
 
-export default function Writer({ data, pageContext, ...routeData }) {
+export default function Blog({ data, pageContext, ...routeData }) {
   // console.log({ data, pageContext, routeData }, routeData.uri);
 
   // eslint-disable-next-line react/destructuring-assignment
@@ -38,27 +40,23 @@ export default function Writer({ data, pageContext, ...routeData }) {
   // console.log(routeData, 'uu', allArticles);
 
   return (
-    <>
-      <SidebarContents>
+    <Island>
+      {/* <SidebarContents>
         <ArticleTags activeTag={pageContext.tag} fontSize="text-200" />
-      </SidebarContents>
-      <WriterStyles>
+      </SidebarContents> */}
+      <BlogStyles>
         <div className="">
           <H1>
             <Link to="/">Ganeshan Dash</Link>{' '}
             <span className="what-am-i">{uri}</span>
           </H1>
           {/* // TODO: Install tailwind */}
-          {/* <ArticleTags activeTag={pageContext.tag} /> */}
+          <ArticleTags activeTag={pageContext.tag} />
           {/* <HeadingTagStyles /> */}
-          <ArticlesListStyles>
-            {allArticles.map((article) => (
-              <ArticleListItem article={article} />
-            ))}
-          </ArticlesListStyles>
+          <Articles allArticles={allArticles} />
         </div>
-      </WriterStyles>
-    </>
+      </BlogStyles>
+    </Island>
   );
 }
 

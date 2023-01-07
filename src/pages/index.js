@@ -7,11 +7,12 @@ import { Helmet } from 'react-helmet';
 import { Island } from '../styles/Layouts/Island';
 import favicon from '../assets/images/static/favicon.ico';
 import { baseTheme, typeScale } from '../styles/utils';
+import Developer from '../components/Developer';
 // import { Island } from 'styles/Layouts/Island';
 // import Lightbulb from '../assets/images/lightbulb.svg';
 // import Img from "gatsby-image"
 
-const HomePageStyles = styled.section`
+const HomePageStyles = styled.div`
   @media (min-width: 1200px) {
     max-width: 1100px;
     margin: 0 auto;
@@ -124,9 +125,8 @@ const HomePage = () => (
         <link rel="canonical" href="http://ganeshandash.com/" />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </Helmet>
-      <p>Site under construction</p>
-      {/* <div className="content-wrapper">
-    </div> */}
+
+      <Developer />
     </HomePageStyles>
   </Island>
 );

@@ -3,7 +3,6 @@ import { PxToRem } from '../utils/math';
 import { theme, typeScale } from '../utils';
 
 export const DeveloperStyles = styled.div`
-  padding-top: 100px;
   .greeting {
     grid-column: 1/-1;
     grid-row: 2/3;

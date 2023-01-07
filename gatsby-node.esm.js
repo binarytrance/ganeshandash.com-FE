@@ -2,7 +2,7 @@ import path from 'path';
 
 async function turnTagsIntoPages({ graphql, actions }) {
   // get a template for this page
-  const tagsTemplate = path.resolve('./src/pages/writer.js');
+  const tagsTemplate = path.resolve('./src/pages/blog.js');
   // query all articles related to this tag
   const { data } = await graphql(`
     query {

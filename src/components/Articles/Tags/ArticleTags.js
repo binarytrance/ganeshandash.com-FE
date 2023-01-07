@@ -43,9 +43,9 @@ export default function ArticleTags({ activeTag, fontSize }) {
   console.log(articles, sortedTags);
 
   return (
-    <ul>
+    <ul className="article__tags">
       <li>
-        <Link to="/writer" className={fontSize}>
+        <Link to="/blog" className={fontSize}>
           All ({sortedTags.length})
         </Link>
       </li>

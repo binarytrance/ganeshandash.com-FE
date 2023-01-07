@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1 } from '../styles/Modules/Headings';
-import { PxToRem } from '../styles/utils/math';
-import PortableText from './PortableText';
+import { H1 } from '../../styles/Modules/Headings';
+import { PxToRem } from '../../styles/utils/math';
+import PortableText from '../PortableText';
 
 // import { theme, typeScale } from '../../utils';
 

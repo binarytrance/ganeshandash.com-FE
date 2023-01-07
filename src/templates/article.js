@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import ArticleContent from '../components/ArticleContent';
+import ArticleContent from '../components/Articles/ArticleContent';
 
 const Article = ({ data, errors }) => {
   // console.log(data.article.title, errors);
@@ -13,7 +13,7 @@ const Article = ({ data, errors }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     article: sanityWriter(slug: { current: { eq: $slug } }) {
       id
       title

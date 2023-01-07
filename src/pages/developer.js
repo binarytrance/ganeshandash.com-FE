@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { graphql, Link } from 'gatsby';
 import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
-import ArticleListItem from '../components/ArticleListItem';
+import ArticleListItem from '../components/Articles/ArticleListItem';
 import { H1, SectionHeading } from '../styles/Modules/Headings';
 import { DeveloperStyles } from '../styles/Layouts/DeveloperStyles';
 import { SidebarContents } from '../styles/Modules/SidebarContents';
