@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { differenceInDays, format, formatDistance } from 'date-fns';
 import { Link } from 'gatsby';
+import Tag from './Tags/Tag';
+import { TagWrapperStyles } from '../../styles/Modules/TagStyles';
 
 const ArticleListItem = ({ article }) => (
   <li key={article.id} className="article">
@@ -20,13 +21,11 @@ const ArticleListItem = ({ article }) => (
     </Link>
     <p className="article__summary">{article.summary}</p>
     {article.tags.length ? (
-      <ul className="article__tags">
+      <TagWrapperStyles>
         {article.tags.map((tag) => (
-          <li key={tag.id} className="article__tag">
-            {tag.name}
-          </li>
+          <Tag key={tag.id} name={tag.name} />
         ))}
-      </ul>
+      </TagWrapperStyles>
     ) : null}
   </li>
 );

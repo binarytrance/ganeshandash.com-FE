@@ -2,11 +2,9 @@ import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import styled from 'styled-components';
-import ArticleListItem from '../components/Articles/ArticleListItem';
 import { SidebarContents } from '../styles/Modules/SidebarContents';
-import ArticleTags from '../components/Articles/Tags/ArticleTags';
+import AllArticleTags from '../components/Articles/Tags/AllArticleTags';
 import { H1 } from '../styles/Modules/Headings';
-import { ArticlesListStyles } from '../styles/Modules/ArticlesListStyles';
 import { Island } from '../styles/Layouts/Island';
 import Articles from '../components/Articles';
 
@@ -45,16 +43,13 @@ export default function Blog({ data, pageContext, ...routeData }) {
         <ArticleTags activeTag={pageContext.tag} fontSize="text-200" />
       </SidebarContents> */}
       <BlogStyles>
-        <div className="">
-          <H1>
-            <Link to="/">Ganeshan Dash</Link>{' '}
-            <span className="what-am-i">{uri}</span>
-          </H1>
-          {/* // TODO: Install tailwind */}
-          <ArticleTags activeTag={pageContext.tag} />
-          {/* <HeadingTagStyles /> */}
-          <Articles allArticles={allArticles} />
-        </div>
+        <H1>
+          <Link to="/">Ganeshan Dash</Link>{' '}
+          <span className="what-am-i">{uri}</span>
+        </H1>
+        {/* // TODO: Install tailwind */}
+        <AllArticleTags activeTag={pageContext.tag} />
+        <Articles allArticles={allArticles} />
       </BlogStyles>
     </Island>
   );
