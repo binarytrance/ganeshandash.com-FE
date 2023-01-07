@@ -85,5 +85,11 @@ export const GlobalStyles = createGlobalStyle`
         padding-top: ${PxToRem(25)};
         padding-bottom: ${PxToRem(25)};
     }
+    * {
+  box-sizing: border-box;
+}
+#___gatsby, #gatsby-focus-wrapper, #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
+}
 
 `;

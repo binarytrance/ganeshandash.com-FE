@@ -4,8 +4,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 // import { GatsbyImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
+import { Island } from '../styles/Layouts/Island';
 import favicon from '../assets/images/static/favicon.ico';
 import { baseTheme, typeScale } from '../styles/utils';
+// import { Island } from 'styles/Layouts/Island';
 // import Lightbulb from '../assets/images/lightbulb.svg';
 // import Img from "gatsby-image"
 
@@ -113,20 +115,8 @@ const HomePageStyles = styled.section`
 `;
 
 // markup
-const HomePage = ({ data }) => {
-  const [highlightedSkills, setHighlightedSkills] = React.useState(null);
-  const skills = data.skills.nodes;
-  const showSkillsDetails = (e) => {
-    // console.log('hover', e);
-
-    const selectedSkill = skills.filter(
-      (skill) => e.target.innerHTML === skill.name
-    );
-    setHighlightedSkills(selectedSkill[0]);
-  };
-  // console.log(highlightedSkills, skills);
-
-  return (
+const HomePage = () => (
+  <Island>
     <HomePageStyles>
       <Helmet>
         <meta charSet="utf-8" />
@@ -134,84 +124,37 @@ const HomePage = ({ data }) => {
         <link rel="canonical" href="http://ganeshandash.com/" />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </Helmet>
-      <div className="content-wrapper">
-        <h1 className="greeting">
-          <small className="greeting__namaste">Namaste</small>
-          <br />
-          <p className="greeting__me">I'm Ganeshan Dash!</p>
-          <br />
-          <p className="greeting__hats">And I put on many hats.</p>
-          <br />
-        </h1>
-        <ul className="skills">
-          {skills.map((skill, index) => (
-            <li
-              key={skill.name + index}
-              onMouseEnter={showSkillsDetails}
-              className={skill.name}
-            >
-              {skill.name}
-            </li>
-          ))}
-        </ul>
-        <div
-          className={`banner-image ${
-            highlightedSkills ? 'banner-image--background' : ''
-          }`}
-        >
-          <img src={data.local.publicURL} alt="light bulb" />
-          {/* <GatsbyImage image={data.local.publicURL} alt="light bulb" /> */}
-        </div>
-        {highlightedSkills ? (
-          <div className="skill-summary">
-            <p className="ordinary-text">{highlightedSkills.description}</p>
-            <h2>Latest Work</h2>
-            <p className="ordinary-text">latest work goes here.</p>
-            <div className="current-occupation">
-              <h2>Currently occupied with:</h2>
-              {highlightedSkills.mainImage ? (
-                // <GatsbyImage mainImage={highlightedSkills.mainImage.asset} alt="text" />
-                <img
-                  src={highlightedSkills.mainImage.asset.url}
-                  alt={highlightedSkills.mainImage.asset.caption}
-                  className="skill-summary__image"
-                />
-              ) : null}
-            </div>
-            {/* <p>either image or text</p> */}
-            <Link to={highlightedSkills.slug.current}>Know more</Link>
-          </div>
-        ) : null}
-      </div>
+      <p>Site under construction</p>
+      {/* <div className="content-wrapper">
+    </div> */}
     </HomePageStyles>
-  );
-};
-
+  </Island>
+);
 export default HomePage;
 
-export const query = graphql`
-  query skillsQuery {
-    local: file(relativePath: { eq: "lightbulb.svg" }) {
-      publicURL
-    }
-    skills: allSanitySkills {
-      nodes {
-        name
-        id
-        description
-        slug {
-          current
-        }
-        mainImage {
-          asset {
-            path
-            url
-            title
-            size
-          }
-        }
-      }
-      totalCount
-    }
-  }
-`;
+// export const query = graphql`
+//   query skillsQuery {
+//     local: file(relativePath: { eq: "lightbulb.svg" }) {
+//       publicURL
+//     }
+//     skills: allSanitySkills {
+//       nodes {
+//         name
+//         id
+//         description
+//         slug {
+//           current
+//         }
+//         mainImage {
+//           asset {
+//             path
+//             url
+//             title
+//             size
+//           }
+//         }
+//       }
+//       totalCount
+//     }
+//   }
+// `;
