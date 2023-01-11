@@ -38,7 +38,7 @@ const Typography = createGlobalStyle`
         z-index: var(--z-level-top);
         width: fit-content;
         color: ${baseTheme.text};
-        &::before {
+        /* &::before {
             position: absolute;
             content: '';
             height: 8px;
@@ -47,7 +47,7 @@ const Typography = createGlobalStyle`
             left: 0%;
             bottom: 7px;
             z-index: var(--z-level-psuedo);
-        }
+        } */
         &.text-400 {
           &::before {
             height: 6px;
@@ -59,11 +59,11 @@ const Typography = createGlobalStyle`
             bottom: 3px;
           }
         }
-        &:hover {
+        /* &:hover {
           &::before {
             background: var(--highlight-red);
           }
-        }
+        } */
 
     }
 

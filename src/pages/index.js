@@ -8,6 +8,7 @@ import { Island } from '../styles/Layouts/Island';
 import favicon from '../assets/images/static/favicon.ico';
 import { baseTheme, typeScale } from '../styles/utils';
 import Developer from '../components/Developer';
+import Footer from '../components/Footer/Footer';
 // import { Island } from 'styles/Layouts/Island';
 // import Lightbulb from '../assets/images/lightbulb.svg';
 // import Img from "gatsby-image"
@@ -16,7 +17,6 @@ const HomePageStyles = styled.div`
   @media (min-width: 1200px) {
     max-width: 1100px;
     margin: 0 auto;
-    height: 100vh;
     display: grid;
     align-items: center;
     grid-template-rows: auto;
@@ -117,18 +117,21 @@ const HomePageStyles = styled.div`
 
 // markup
 const HomePage = () => (
-  <Island>
-    <HomePageStyles>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Ganeshan Dash</title>
-        <link rel="canonical" href="http://ganeshandash.com/" />
-        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-      </Helmet>
+  <>
+    <Island>
+      <HomePageStyles className="yuu">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Ganeshan Dash</title>
+          <link rel="canonical" href="http://ganeshandash.com/" />
+          <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+        </Helmet>
 
-      <Developer />
-    </HomePageStyles>
-  </Island>
+        <Developer />
+      </HomePageStyles>
+    </Island>
+    <Footer />
+  </>
 );
 export default HomePage;
 

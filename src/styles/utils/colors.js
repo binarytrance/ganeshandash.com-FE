@@ -31,4 +31,5 @@ export const blue = {
 };
 export const red = {
   100: '#bb1450', // this is highlighted text
+  200: '#f0a8b1',
 };
