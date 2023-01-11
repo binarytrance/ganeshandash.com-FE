@@ -34,7 +34,7 @@ const HomePageStyles = styled.div`
     grid-column: 1/-1;
     grid-row: 2/3;
     &__namaste {
-      font-family: 'Yatra';
+      font-family: 'LoraBold';
       ${typeScale.header3};
     }
     &__me {

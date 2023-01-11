@@ -4,6 +4,17 @@ import { baseTheme, typeScale } from '../utils';
 import HeadingFont from '../../assets/fonts/Salsa-Regular.ttf';
 import YatraFont from '../../assets/fonts/YatraOne-Regular.ttf';
 
+import LoraBold from '../../assets/fonts/Lora-Bold.ttf';
+import NunitoBold from '../../assets/fonts/Nunito-Bold.ttf';
+import NunitoRegular from '../../assets/fonts/Nunito-Regular.ttf';
+
+// Heading - Lora Bold (large font) - lg, sm
+// Subheading - Lora bold (smaller font)
+// Sectionheading - Nunito bold
+
+// Paragraph - xl, lg, sm, xs
+// Reg, Bold
+
 const Typography = createGlobalStyle`
   @font-face {
     font-family: Salsa;
@@ -13,8 +24,21 @@ const Typography = createGlobalStyle`
     font-family: Yatra;
     src: url(${YatraFont});
   }
+  @font-face {
+    font-family: LoraBold;
+    src: url(${LoraBold});
+  }
+  @font-face {
+    font-family: NunitoBold;
+    src: url(${NunitoBold});
+  }
+  @font-face {
+    font-family: NunitoRegular;
+    src: url(${NunitoRegular});
+  }
+
   html {
-    font-family: Salsa, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Nunito, Lora -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: ${baseTheme.text};
     letter-spacing: var(--letter-spacing);
   }

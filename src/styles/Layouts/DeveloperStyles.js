@@ -7,14 +7,16 @@ export const DeveloperStyles = styled.div`
     grid-column: 1/-1;
     grid-row: 2/3;
     &__namaste {
-      font-family: 'Yatra';
+      font-family: 'LoraBold';
       ${typeScale.header3};
     }
     &__me {
+      font-family: 'LoraBold';
       ${typeScale.myName};
       margin-bottom: ${PxToRem(25)};
     }
     &__hats {
+      font-family: 'NunitoRegular';
       ${typeScale.textMd};
     }
   }

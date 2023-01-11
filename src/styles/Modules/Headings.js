@@ -6,5 +6,5 @@ export const H1 = styled.h1`
 `;
 export const SectionHeading = styled.h2`
   ${typeScale.header2};
-  font-family: 'Yatra';
+  font-family: 'LoraBold';
 `;
