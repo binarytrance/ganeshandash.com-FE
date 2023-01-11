@@ -123,7 +123,7 @@ const HomePage = () => (
         <Helmet>
           <meta charSet="utf-8" />
           <title>Ganeshan Dash</title>
-          <link rel="canonical" href="http://ganeshandash.com/" />
+          <link rel="canonical" href="https://ganeshandash.com/" />
           <link rel="shortcut icon" href={favicon} type="image/x-icon" />
         </Helmet>
 
